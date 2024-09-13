@@ -5,17 +5,17 @@
 typedef struct Node {
     int valor;
     struct Node* prox;
-} Node;
+} node;
 
 // Função para criar a lista (cabeça)
-Node* cria_lista() {
+node* cria_lista() {
     if()
     return NULL; // Lista inicialmente vazia
 }
 
 // Função para inserir no início
-Node* insere_inicio(Node* lista, int valor) {
-    Node* novo = (Node*) malloc(sizeof(Node));
+node* insere_inicio(node* lista, int valor) {
+    node* novo = (node*) malloc(sizeof(node));
     if (!novo) {
         printf("Erro ao alocar memória\n");
         return lista;
@@ -26,8 +26,8 @@ Node* insere_inicio(Node* lista, int valor) {
 }
 
 // Função para inserir no final
-Node* insere_fim(Node* lista, int valor) {
-    Node* novo = (Node*) malloc(sizeof(Node));
+node* insere_fim(node* lista, int valor) {
+    node* novo = (node*) malloc(sizeof(node));
     if (!novo) {
         printf("Erro ao alocar memória\n");
         return lista;
@@ -39,7 +39,7 @@ Node* insere_fim(Node* lista, int valor) {
         return novo; // Caso a lista esteja vazia
     }
 
-    Node* aux = lista;
+    node* aux = lista;
     while (aux->prox != NULL) {
         aux = aux->prox;
     }
@@ -48,8 +48,8 @@ Node* insere_fim(Node* lista, int valor) {
 }
 
 // Função para exibir a lista
-void exibe_lista(Node* lista) {
-    Node* aux = lista;
+void exibe_lista(node* lista) {
+    node* aux = lista;
     while (aux != NULL) {
         printf("%d -> ", aux->valor);
         aux = aux->prox;
@@ -58,8 +58,8 @@ void exibe_lista(Node* lista) {
 }
 
 // Função para liberar (desalocar) a lista
-Node* libera_lista(Node* lista) {
-    Node* aux;
+node* libera_lista(node* lista) {
+    node* aux;
     while (lista != NULL) {
         aux = lista->prox;
         free(lista);
@@ -69,19 +69,19 @@ Node* libera_lista(Node* lista) {
 }
 
 // Função para remover do início
-Node* remove_inicio(Node* lista) {
+node* remove_inicio(node* lista) {
     if (lista == NULL) {
         printf("Lista vazia\n");
         return lista;
     }
-    Node* aux = lista;
+    node* aux = lista;
     lista = lista->prox;
     free(aux);
     return lista;
 }
 
 // Função para remover do fim
-Node* remove_fim(Node* lista) {
+node* remove_fim(node* lista) {
     if (lista == NULL) {
         printf("Lista vazia\n");
         return lista;
@@ -90,8 +90,8 @@ Node* remove_fim(Node* lista) {
         free(lista);
         return NULL;
     }
-    Node* aux = lista;
-    Node* anterior = NULL;
+    node* aux = lista;
+    node* anterior = NULL;
     while (aux->prox != NULL) {
         anterior = aux;
         aux = aux->prox;
@@ -103,7 +103,7 @@ Node* remove_fim(Node* lista) {
 
 // Função principal para teste
 int main() {
-    Node* lista = cria_lista();
+    node* lista = cria_lista();
 
     lista = insere_inicio(lista, 10);
     lista = insere_inicio(lista, 20);
