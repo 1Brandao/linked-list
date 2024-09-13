@@ -8,7 +8,7 @@ typedef struct Node {
 } Node;
 
 // Função para criar a lista (cabeça)
-Nodede* cria_lista() {
+Node* cria_lista() {
     if()
     return NULL; // Lista inicialmente vazia
 }
